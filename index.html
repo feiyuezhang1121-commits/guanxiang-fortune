@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#12171d" />
+    <title>观象 | 今日运势</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="观象首页"><span class="brand-mark">观</span><span>观象</span></a>
+        <div class="topbar-date" id="today-date"></div>
+        <span class="topbar-note">传统文化娱乐解读</span>
+      </header>
+      <main>
+        <section class="intro" id="intro-section">
+          <div class="intro-copy">
+            <p class="eyebrow"><span></span> DAILY COSMIC READING</p>
+            <h1>听见今日<br /><em>天时的回响</em></h1>
+            <p class="intro-description">以生辰为引，以生肖为象。借古法观照当下，为你写下一份只属于今日的生活提示。</p>
+          </div>
+          <form class="fortune-form" id="fortune-form">
+            <div class="form-heading"><span class="step-index">01</span><div><p>启占</p><h2>留下你的印记</h2></div></div>
+            <label class="field"><span>姓名 <i>NAME</i></span><input id="name" name="name" type="text" maxlength="12" autocomplete="name" placeholder="如何称呼你" required /></label>
+            <label class="field"><span>出生年月 <i>BIRTH DATE</i></span><input id="birthdate" name="birthdate" type="date" required /></label>
+            <div class="field zodiac-field"><span>生肖 <i>ZODIAC</i></span><div class="zodiac-grid" id="zodiac-grid" role="radiogroup" aria-label="选择生肖"></div></div>
+            <input type="hidden" id="zodiac" name="zodiac" required />
+            <button class="reveal-button" type="submit"><span>展开今日运势</span><b>↗</b></button>
+            <p class="form-disclaimer">提交即表示你了解：本报告为传统文化娱乐内容</p>
+          </form>
+        </section>
+        <section class="report hidden" id="report-section" aria-live="polite">
+          <div class="report-topline"><button class="back-button" id="back-button" type="button">← 重新起卦</button><span id="report-date"></span></div>
+          <div class="report-hero"><div><p class="eyebrow"><span></span> TODAY'S READING</p><h2><strong id="report-name"></strong>，<br />今日宜 <em id="report-keyword"></em></h2></div><div class="score-dial" aria-label="今日运势指数"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="51"></circle><circle class="score-progress" id="score-progress" cx="60" cy="60" r="51"></circle></svg><div><b id="score">86</b><span>运势指数</span></div></div></div>
+          <div class="report-grid">
+            <article class="oracle-card featured-card"><div class="card-cap"><span>今日断语</span><i id="element-label">木 · 生发</i></div><blockquote id="oracle-text"></blockquote><p id="oracle-detail"></p><div class="seal">吉</div></article>
+            <article class="oracle-card timing-card"><div class="card-cap"><span>时运</span><i>TIME WINDOW</i></div><p class="time-label">今日顺流时刻</p><h3 id="lucky-time"></h3><p id="time-detail"></p><div class="time-bar"><span></span><span></span><span></span><span class="active"></span><span class="active"></span><span></span><span></span></div><small>辰时　巳时　午时　未时　申时　酉时　戌时</small></article>
+            <article class="oracle-card energy-card"><div class="card-cap"><span>五行气象</span><i>FIVE ELEMENTS</i></div><div class="element-readout"><b id="element-symbol">木</b><div><p id="element-name"></p><span id="element-advice"></span></div></div><div class="meter"><span id="meter-value"></span></div></article>
+            <article class="oracle-card advice-card"><div class="card-cap"><span>行动指引</span><i>GUIDANCE</i></div><ul id="advice-list"></ul></article>
+          </div>
+          <div class="report-footer"><span>观象 · 今日笺</span><p>心有所向，步履自有回响</p><button id="refresh-button" type="button">再求一签 <b>↻</b></button></div>
+        </section>
+      </main>
+      <footer><span>观象所言，皆为一时之象。知其可为，行之由己。</span><span>ENTERTAINMENT ONLY</span></footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
